@@ -71,12 +71,12 @@ jobs:
       run: cd openwrt && ./scripts/feeds install -a
     
     
-    - name: Clean Build
-      run: |
-        make dirclean
-    - name: Compile Firmware
-      run: |
-        make -j8 V=s 
+    #- name: Clean Build
+     # run: |
+      #  make dirclean
+    #- name: Compile Firmware
+     # run: |
+      #  make -j8 V=s 
         
     - name: Load custom configuration
       run: |
