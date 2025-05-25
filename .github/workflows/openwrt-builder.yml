@@ -73,10 +73,10 @@ jobs:
     
     - name: Clean Build
       run: |
-        make clean
+        make dirclean
     - name: Compile Firmware
       run: |
-        make -j$(nproc) V=cs 
+        make -j8 V=s 
         
     - name: Load custom configuration
       run: |
@@ -124,7 +124,9 @@ jobs:
         cd openwrt/bin/targets/*/*
         rm -rf packages
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
-        echo "status=success" >> $GITHUB_OUTPUT
+        #echo "status=success" >> $GITHUB_OUTPUT
+        echo "::set-output name=status::success"
+        
 
     - name: Upload firmware directory
       uses: actions/upload-artifact@main
